@@ -1,6 +1,7 @@
 package lab.payments.common;
 
 import lab.payments.account.AccountNotFoundException;
+import lab.payments.limit.DailyLimitExceededException;
 import lab.payments.payment.InsufficientFundsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -17,6 +18,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(InsufficientFundsException.class)
     public ProblemDetail handleInsufficientFunds(InsufficientFundsException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
+    }
+
+    @ExceptionHandler(DailyLimitExceededException.class)
+    public ProblemDetail handleDailyLimitExceeded(DailyLimitExceededException e) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
     }
 
