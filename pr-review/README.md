@@ -8,9 +8,17 @@ A small Spring Boot service that lets customers pay bills from their accounts.
 1. Open the exercise PR. Read the description first: it is the ticket the code must satisfy.
 2. Start a 45-minute timer.
 3. Review on GitHub like a real reviewer:
-   - inline comments on the lines that matter, each with **severity → problem → consequence → fix**
-     (severity: Blocker / Should fix / Nit / Question)
-   - finish with a review summary: verdict, top blockers, one thing done well
+   - inline comments on the lines that matter: `**LABEL:** problem → consequence → fix`
+   - finish with a review summary: verdict, top CRITICAL findings, one PRAISE
+
+| Label | Meaning |
+|---|---|
+| **CRITICAL** | Wrong behavior, money/data loss, security hole. Blocks merge. |
+| **MAJOR** | Real risk under some condition (load, failure, restart, 2+ instances) or bad practice that will hurt soon. Fix in this PR. |
+| **MINOR** | Readability, naming, small cleanup. Optional. |
+| **SUGGESTION** | An alternative design or idea; nothing is wrong with the current code. |
+| **QUESTION** | Context needed before judging. |
+| **PRAISE** | Something done well, and why it matters. At least one per review. |
 4. Submit the review (Request changes / Comment / Approve).
 
 Order that works: map the files → core logic → supporting classes → tests → summary.
