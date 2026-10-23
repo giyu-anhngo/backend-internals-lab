@@ -6,3 +6,8 @@ spring:
     hibernate:
       ddl-auto: create-drop
     defer-datasource-initialization: true
+
+payments:
+  daily-limit-vnd: 20000000
+  fx:
+    refresh-interval-ms: 60000
